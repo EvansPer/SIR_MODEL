@@ -2,7 +2,7 @@ clc; close all; clearvars;
 
 %% IMPORTING DATA
 
-load("data_config.mat");
+load("dataframe.mat");
 
 addpath(genpath("Functions"));
 addpath(genpath("Plots"));
@@ -46,7 +46,7 @@ plot(t,y(:,3),"--");
 legend("Removals","Model R(t)");
 
 %% D vs R
-[model_D_vs_R,model_D, model_recovered] = model_R_new(y,total_removals,deaths);
+[model_D_vs_R,model_D, model_recovered] = model_R(y,total_removals,deaths);
 figure;
 plot(total_removals,deaths,"*");
 hold on;
