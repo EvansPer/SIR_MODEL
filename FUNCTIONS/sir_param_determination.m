@@ -1,28 +1,30 @@
-function [t,y] = sir_param_determination(a,b,tspan,y0,options,active_infections,threshold)
+function [t,y] = sir_param_determination(A,B,tspan,y0,options,active_infections,threshold)
 
-% This function provides the parameters "a" and "b" describing the ODE
+% This function provides the parameters "A" and "B" describing the ODE
 % reported in the introduction, and then build the solution for that system
 % of ODE, [t,y].
 % tspan, y0 and options are used by the ODE45 function to build the 3 ODE
 % solutions (commented in the data_config.m file), while active_infections is the raw data 
 % vector imported by SIR_simulation, along with "threshold".
+
 % The duoble iterative cycle spans over the 2 vectors a and b in which I
 % assumed the true value of the parameters would have been. 
 % Within the cylces, the sir model is built by means of the function "sir",
-% then the system of ODE is solved with the function "ODE45". The
-% difference between the raw data (active infections) and the model (y) is accounted by the
+% then the system of ODE is solved with the function "ODE45". 
+
+% The difference between the raw data (active infections) and the model (y) is accounted by the
 % function "model_fitting". If this difference is smaller than a provided
-% threshold (so if delta == true), the associated parameters "a" and "b" are identified and the
+% threshold (so if delta == true), the associated parameters "A" and "B" are identified and the
 % cylces are stopped.
 
     flag = false;
-    for i = 1:length(a)
-        for j = 1:length(b)
-            sir_func = @(t,y) sir(t,y,a(i),b(j));
+    for i = 1:length(A)
+        for j = 1:length(B)
+            sir_func = @(t,y) sir(t,y,A(i),B(j));
             [t,y] = ode45(sir_func,tspan,y0,options);
             [delta, error] = model_fitting(active_infections,y,threshold);
             if delta == true
-                disp("a = " + a(i) + ", b = " + b(j) + ", y_{model} - y_{active inf} = " + error);
+                disp("a = " + A(i) + ", b = " + B(j) + ", y_{model} - y_{active inf} = " + error);
                 flag = true;
                 break
             end 
