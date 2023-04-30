@@ -3,6 +3,9 @@ function [t,y] = sir_param_determination(a,b,tspan,y0,options,active_infections,
 % This function provides the parameters "a" and "b" describing the ODE
 % reported in the introduction, and then build the solution for that system
 % of ODE, [t,y].
+% tspan, y0 and options are used by the ODE45 function to build the 3 ODE
+% solutions, while active_infections is the raw data vector imported by
+% SIR_simulation, along with "threshold".
 % The duoble iterative cycle spans over the 2 vectors a and b in which I
 % assumed the true value of the parameters would have been. 
 % Within the cylces, the sir model is built by means of the function "sir",
