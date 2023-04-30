@@ -1,10 +1,19 @@
 function [new_positives,active_infections,total_removals,total_infected,deaths,recovers] = normalization(data)
 
 % This function provides the normilized variables extracted from the "data"
-% dataframe to be fitted with the ODE solution. The best approach in this
+% dataframe to be fitted with the ODE solutions. The best approach in this
 % situations is to scale down every variable to the normalized ODE solution
 % rather than scaling the former up, losing track of variables
 % interdependence.
+% The first 4 variables are defined as vectors from raw 1 to 161 of "data"
+% and coloumn 6,8,9,10, respectively.
+
+% new_positives = I(t) while 
+% total removals = R(t) (ideally, so that a fit can be performed)
+% normalization_fac is the normalization factor provided by the maximum value of the total # of infected
+
+% Once all the variables have been defined, along with the
+% normalization_fac, it is possible to scale them down to max 1.
 
     active_infections = data(1:161,6);
     new_positives = data(1:161,8); % I(t) in the ODE
@@ -14,16 +23,14 @@ function [new_positives,active_infections,total_removals,total_infected,deaths,r
     total_removals = recovers + deaths; % R(t) in the ODE
     total_infected = total_removals + active_infections;
     
-    % Normalization factor provided by the maximum value of the total # of infected
-    f = max(total_infected); 
+    normalization_fact = max(total_infected); 
     
-    % Normalizing the previous variables
-    total_removals = total_removals./f;
-    new_positives = new_positives./f;
-    active_infections = active_infections./f;
-    deaths = deaths./f;
-    recovers = recovers./f;
-    total_infected = total_infected./f;
+    total_removals = total_removals./normalization_fact;
+    new_positives = new_positives./normalization_fact;
+    active_infections = active_infections./normalization_fact;
+    deaths = deaths./normalization_fact;
+    recovers = recovers./normalization_fact;
+    total_infected = total_infected./normalization_fact;
 
 end
 
