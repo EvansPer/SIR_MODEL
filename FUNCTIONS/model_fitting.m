@@ -1,6 +1,8 @@
 function [delta,error] = model_fitting(active_infections,y,threshold)
 
-% This function provides a positive feedback (delta = true) when the threshold condition is met.
+% This function provides a positive feedback (delta = true) when the threshold condition is met, by 
+% means of the boolean flag "delta".
+
 % It is fed with the raw data vector "active_infections", the model
 % matrix y to be compared with and the threshold value. 
 
