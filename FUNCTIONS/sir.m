@@ -5,8 +5,10 @@ function [dydt] = sir(t,y,A,B)
 
 % It is fed with y (a 3 coloumns matrix) and the transmission rate (A) and 
 % removal rate (B) constants.
+
 % y(1) = S(t) (susceptibles) while y(2) = I(t) (infected).
-% dydt is a coloumn vector with 3 raws (of elements 0), and in each raw a
+
+% It returns dydt, a coloumn vector with 3 raws (of elements 0), and in each raw a
 % specific differential equation (from the SIR model system) is allocated
 % following the system (1) in the README Introduction.
 
