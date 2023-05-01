@@ -36,6 +36,7 @@ function [new_positives,active_infections,total_removals,total_infected,deaths,r
     recovers = recovers./normalization_fact;
     total_infected = total_infected./normalization_fact;
 
+    save("Norm_dataset.mat")
 end
 
     
