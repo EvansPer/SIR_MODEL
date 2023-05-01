@@ -20,7 +20,7 @@ function test_sir_param_determination_output()
     tspan = [0, 100];
     y0 = [0.99, 0.01, 0];
     options = odeset();
-    active_infections = [100, 200, 300, 400, 500];
+    active_infections = 100:10:1000;
     threshold = 0.01;
 
     expected_t = [0; 0.818; 1.636; 2.454; 3.272];
@@ -36,4 +36,5 @@ function test_sir_param_determination_output()
     assert(all(size(y) == size(expected_y)), 'Unexpected size of y')
     assert(all(t == expected_t, 'all'), 'Unexpected values of t')
     assert(all(abs(y - expected_y) < 1e-6, 'all'), 'Unexpected values of y')
+    
 end
