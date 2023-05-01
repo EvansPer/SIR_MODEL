@@ -13,7 +13,7 @@ time = linspace(1,161,161);
 % the ODE solution
 
 tspan = [0 161]; 
-y0 = [1 0.001 0];
+y0 = [0.999 0.001 0];
 options = odeset("MaxStep",4.1); % Upper bound on the step size
 A = 0:0.01:1;                    % Initial increasing exponential growth parameter
 B = 0:0.001:0.1;                 % Final decreasing exponential decay parameter
