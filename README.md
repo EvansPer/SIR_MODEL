@@ -17,19 +17,38 @@ Therefore, I tried and managed to add some iterative cycles in order to find the
 # INTRODUCTION
 
 Infection diseases such as COVID-19 represent a significant threat to the public health. The ability to predict the evolution of a virus endemic or pandemic could make the difference in the infected/dead count, along with much more aware management of the infrastructures and available resources.
-One possible solution to describe and fresee the evolution of a pandemic would be the deployment of the so-called SIR model (Susceptibles - Infected - Recovered) modelled by three ordinary differential equations (ODE) of the form:
+One possible solution to describe and foresee the evolution of a pandemic would be the deployment of the so-called SIR model (Susceptibles - Infected - Recovered) modelled by three ordinary differential equations (ODE) of the form:
 
-$$ \frac{dS(t)}{dt} = -aS(t)I(t) $$
+$$ \frac{dS(t)}{dt} = -AS(t)I(t) $$
 
-$$ \frac{dI(t)}{dt} = aS(t)I(t) - bI(t) \space\space\space\space (1) $$
+$$ \frac{dI(t)}{dt} = AS(t)I(t) - BI(t) \space\space\space\space (1) $$
 
-$$ \frac{dR_m(t)}{dt} = bI(t) $$
+$$ \frac{dR_m(t)}{dt} = BI(t) $$
 
 where S(t) represents the time dependent value of the susceptible population (people who can potentially be infected), I(t) represents the number of infected people and 
+
 $$R_m(t) = R(t) + D(t) \space\space\space\space (2) $$ 
-describes the number of people removed from the previous cases (thus recovered or dead), while a and b represents the transmission rate constant and removal rate constant, respectively.
+
+describes the number of people removed from the previous cases (thus recovered or dead), while A and B represents the transmission rate constant and removal rate constant, respectively.
 In this context, it is useful to introduce the effective reproductive rate
 
-$$ R_e(t) = \frac{a}{b}S(t) \space\space\space\space (3) $$
+$$ R_e(t) = \frac{A}{B}S(t) \space\space\space\space (3) $$
 
 which determines the very fate of the evolution: if it is greater than 1, the virus will spread with the typical initial exponential spike, while it will decrease monotonically to zero if it is smaller than 1.
+
+Since the excistence of a threshold for the virus spread is not so trivial nor obvious, an accurate analysis of the reproductive rate must be carried out to forecast possible outbrakes and second waves of contagions. 
+
+Furthermore, it is possible to model the profile of deaths vs total removed with the equation:
+
+$$ D(R_m) = D_0(1-e^{-kR_m}), \space\space\space\space (4) $$
+
+where D_0 and k can be estimated by a non-linear fitting procedure. Thus, it is possible to obtain the total value of recovered as follows:
+
+$$ R(t) = R_m(t) - D(t). \space\space\space\space (5) $$
+
+where clearly the first variable coincides with the third solution of the SIR problem and D(t) is the fitting model just evaluated.
+
+# THE CODE
+
+The idea behind this code is simple: once some initial parameters are configured, it is possible to launch the simulation, whose function will try to adapt the models as much as possible to the raw data provided, returning in good approximation a model not only capable of describing the punctual evolution of the system but to extrapolating and forecast it, too.
+
