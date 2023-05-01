@@ -18,7 +18,7 @@ function test_sir_param_determination_syntax()
     tspan = [0, 100];
     y0 = [0.99, 0.01, 0];
     options = odeset();
-    active_infections = [100, 200, 300, 400, 500];
+    active_infections = 100:10:1000;
     threshold = 0.01;
     try
         [t,y] = sir_param_determination(A,B,tspan,y0,options,active_infections,threshold);
