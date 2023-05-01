@@ -26,7 +26,7 @@ function [t,y] = sir_param_determination(A,B,tspan,y0,options,active_infections,
             [t,y] = ode45(sir_func,tspan,y0,options);
             [delta, error] = model_fitting(active_infections,y,threshold);
             if delta == true
-                disp("a = " + A(i) + ", b = " + B(j) + ", y_{model} - y_{active inf} = " + error);
+                disp("A = " + A(i) + ", B = " + B(j) + ", y_{model} - y_{active inf} = " + error);
                 flag = true;
                 break
             end 
