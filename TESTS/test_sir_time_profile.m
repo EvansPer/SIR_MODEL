@@ -20,8 +20,8 @@ function test_sir_time_profile()
 % Test 2, A = 0.4, B = 0.2
     [t, y] = ode45(@(t,y) sir(t,y,0.4,0.2), [0, 150], [0.999, 0.001, 0]);
     [i,j] = max(y(:,2));
-    assert(all(sum(y, 2) - 1 <= 1e-15));
-    assert(all(diff(y(:,1)) <= 0));
-    assert(all(diff(y(1:j,2)) >= 0) & all(diff(y(j:end,2)) <= 0));
-    assert(all(diff(y(:,3)) >= 0));
+    assert(all(sum(y, 2) - 1 <= 1e-15),"Error: model not normalized");
+    assert(all(diff(y(:,1)) <= 0),"Error: S(t) not decreasing in time");
+    assert(all(diff(y(1:j,2)) >= 0) & all(diff(y(j:end,2)) <= 0),"Error: Wrong I(t) time profile");
+    assert(all(diff(y(:,3)) >= 0),"Error: R_m(t) not increasing in time");
 end
