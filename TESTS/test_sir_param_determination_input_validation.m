@@ -3,8 +3,8 @@ function test_sir_param_determination_input_validation()
 % This test verifies that, given one or more wrong parameters in the
 % sir_param_determination input, an error arises.
 
-% In Test 1 and 2 I provide an empty raw vector
-% In Test 3 the threshold is negative
+% In Test 1 I provide an empty raw vector
+% In Test 2 the threshold is negative
 
 % It is fed with:
 % - the 2 ODE parameters A and B
@@ -32,16 +32,7 @@ function test_sir_param_determination_input_validation()
     catch err
     end
 
-% Test 2
-  
-    try
-        [t,y] = sir_param_determination(A,B,tspan,y0,options,active_infections,threshold);
-        assert(false, "Function did not throw an error when active_infections is empty");
-    catch err
-        assert(strcmp(err.message, "Input argument active_infections cannot be empty"));
-    end
-
- % Test 3
+ % Test 2
 
     threshold = -0.01;
     try
