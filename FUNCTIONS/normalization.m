@@ -19,6 +19,8 @@ function [new_positives,active_infections,total_removals,total_infected,deaths,r
 % Once all the variables have been defined, along with the
 % normalization_fac, it is possible to scale them down to max 1.
 
+% Finally, it saves the generated normalized vectors in a dataframe calle "Norm_dataset.mat"
+
     active_infections = data(1:161,6);
     new_positives = data(1:161,8); % I(t) in the ODE
     recovers = data(1:161,9);
