@@ -1,6 +1,6 @@
 # SIR MODEL
 
-# Table of content
+## Table of content
 * [ABSTRACT](#ABSTRACT)
 * [INRODUCTOIN](#INTRODUCTION)
 * [THE CODE](#THE-CODE)
@@ -17,7 +17,7 @@ Therefore, I tried and managed to add some iterative cycles in order to find the
 ## INTRODUCTION
 
 Infection diseases such as COVID-19 represent a significant threat to the public health. The ability to predict the evolution of a virus endemic or pandemic could make the difference in the infected/dead count, along with much more aware management of the infrastructures and available resources.
-One possible solution to describe and foresee the evolution of a pandemic would be the deployment of the so-called SIR model (Susceptibles - Infected - Recovered) modelled by three ordinary differential equations (ODE) of the form:
+One possible solution to describe and foresee the evolution of a pandemic would be the deployment of the so-called SIR model (Susceptibles - Infected - Recovered) based on three ordinary differential equations (ODE) of the form:
 
 $$ \frac{dS(t)}{dt} = -AS(t)I(t) $$
 
@@ -42,7 +42,7 @@ Furthermore, it is possible to model the profile of deaths vs total removed with
 
 $$ D(R_m) = D_0(1-e^{-kR_m}), \space\space\space\space (4) $$
 
-where D_0 and k can be estimated by a non-linear fitting procedure. Thus, it is possible to obtain the total value of recovered as follows:
+where $D_0$ and k can be estimated by a non-linear fitting procedure. Thus, it is possible to obtain the total value of recovered as follows:
 
 $$ R(t) = R_m(t) - D(t). \space\space\space\space (5) $$
 
@@ -50,7 +50,7 @@ where clearly the first variable coincides with the third solution of the SIR pr
 
 ## THE CODE
 
-The idea behind this code is simple: once some initial parameters are configured, it is possible to launch the simulation, whose function will try to adapt the models as much as possible to the raw data provided, returning in good approximation a model not only capable of describing the punctual evolution of the system but to extrapolating and forecast it, too.
+The idea behind this code is simple: once some initial parameters are configured, it is possible to launch the simulation, whose functions will try to adapt the models as much as possible to the raw data provided, returning in good approximation a model not only capable of describing the punctual evolution of the system but to extrapolating and forecast it, too.
 
 The structure of the project is the following:
 
@@ -60,19 +60,27 @@ The structure of the project is the following:
 4. The [normalization](https://github.com/EvansPer/SIR_MODEL/blob/main/FUNCTIONS/normalization.m) function input is the matrix called "data" containing all the raw acquisitions imported by the Minister of Health. It defines all the variables to be used in the SIR model and finds what is the number of total_infected in order to obtain the normalization factor. The normalization of all vectors is then performed, as the function provides precisely these values. 
 5. The [sir_param_determination](https://github.com/EvansPer/SIR_MODEL/blob/main/FUNCTIONS/sir_param_determination.m) function has been added to improve the efficiency of the code: while in the paper, the ODE parameters are found by visual inspection, I decided to implement a simple routine that, within two for cycles, identifies A and B.
 To do so, the input provided is:
-    - the vector parameters A and B in which it is assumed to find the proper values
+    - the vector parameters A and B in which it is assumed to find the proper values (defined in the [data_config.m](https://github.com/EvansPer/SIR_MODEL/blob/main/data_config.m) script)
     - ODE parameters and options
     - a raw vector to compare with the model
     - a threshold needed to reach convergence between the raw data vector and the generated model.
 Inside the cycles, a SIR model is generated and compared with the real data. When it is compatible (within the threshold) with "active_infections", the cycles stop, the parameters A and B are identified and the model can be returned in the main script.
-6. The function [model_R](https://github.com/EvansPer/SIR_MODEL/blob/main/FUNCTIONS/model_R.m) is fed with the generated model y (thus the solutions of the SIR ODE system expressed in eq. (1)) and the raw data vectors total_removed and deaths. It aims to find, through an automated approach, the best fit possible for eq. (4). Thus, by means of the least squares method, the non-linear fit parameters D_0 and k are identified, and the function can return this model, along with the model that describes the time profile of the recovered raw vector. 
-7. Finally, the [function plot_data_fit](https://github.com/EvansPer/SIR_MODEL/blob/main/FUNCTIONS/plot_data_fit.m) is called to produce 4 different images:
-    - The I(t), R_m(t), R(t) and I_T(t) data plus fitting model
-    - The D = D(R_m) fit and D(t) time profile
+6. The function [model_R](https://github.com/EvansPer/SIR_MODEL/blob/main/FUNCTIONS/model_R.m) is fed with the generated model y (thus the solutions of the SIR ODE system expressed in eq. (1)) and the raw data vectors total_removed and deaths. It aims to find, through an automated approach, the best fit possible for eq. (4). Thus, by means of the least squares method, the non-linear fit parameters $D_0$ and k are identified, and the function can return this model of eq. (4), along with the model that describes the time profile of the recovered raw vector. 
+7. Finally, the function [plot_data_fit](https://github.com/EvansPer/SIR_MODEL/blob/main/FUNCTIONS/plot_data_fit.m) is called to produce 4 different images:
+    - The I(t), $R_m(t)$, R(t) and $I_T(t)$ data plus fitting model
+    - The $D = D(R_m)$ fit and D(t) time profile
     - The SIR solution time evolution
     - The reproductive rate time profile 
     It generates a folder [GRAPHS](https://github.com/EvansPer/SIR_MODEL/blob/main/FUNCTIONS/GRAPHS) inside the [FUNCTIONS](https://github.com/EvansPer/SIR_MODEL/blob/main/FUNCTIONS) folder and stores the images inside.
-All the previous functions are found inside the [FUNCTIONS](https://github.com/EvansPer/SIR_MODEL/blob/main/FUNCTIONS) folder, while the tests are collected in the [TESTS](https://github.com/EvansPer/SIR_MODEL/blob/main/TESTS) folder.
+All the previous functions are found inside the [FUNCTIONS](https://github.com/EvansPer/SIR_MODEL/blob/main/FUNCTIONS) folder, which contains in total the following functions:
+    - [model_R](https://github.com/EvansPer/SIR_MODEL/tree/main/FUNCTIONS/model_R.m)
+    - [model_fitting](https://github.com/EvansPer/SIR_MODEL/tree/main/FUNCTIONS/model_fitting.m)
+    - [normalization](https://github.com/EvansPer/SIR_MODEL/tree/main/FUNCTIONS/normalization.m)
+    - [plot_data_fit](https://github.com/EvansPer/SIR_MODEL/tree/main/FUNCTIONS/plot_data_fit.m)
+    - [sir](https://github.com/EvansPer/SIR_MODEL/tree/main/FUNCTIONS/sir.m)
+    - [sir_param_determination](https://github.com/EvansPer/SIR_MODEL/tree/main/FUNCTIONS/sir_param_determination.m)
+
+The function tests are instead collected in the [TESTS](https://github.com/EvansPer/SIR_MODEL/blob/main/TESTS) folder.
 
 ## RESULTS
 
@@ -86,7 +94,7 @@ Figure 2 shows instead the solution of the SIR system described in eq. (1), norm
 2. Figure 2: Time evolution of the SIR model. A = 0.18 and B = 0.039 (the parameters found in the paper are A = 0.18 and B = 0.037)
 ![config](https://github.com/EvansPer/SIR_MODEL/blob/main/FUNCTIONS/GRAPHS/SIR_model.jpg)
 
-3. Figure 3: Time evolution of the reproductive rate R_e
+3. Figure 3: Time evolution of the reproductive rate $R_e$
 ![config](https://github.com/EvansPer/SIR_MODEL/blob/main/FUNCTIONS/GRAPHS/R_e.jpg)
 
 4. Figure 4: Deaths vs Total removed (left), deaths vs time (right).
