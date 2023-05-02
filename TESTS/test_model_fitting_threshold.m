@@ -1,6 +1,6 @@
 function test_model_fitting_threshold()
 
-% This test verifies that, provided with vectors with close values but with
+% This test verifies that, provided with vectors with close values but
 % a threshold too small, the function model_fitting returns a delta = false,
 % since the values are not sufficiently close.
 
@@ -16,6 +16,6 @@ function test_model_fitting_threshold()
     
     [delta, error] = model_fitting(active_infections, y, threshold);
     
-    assert(delta,"Error: Threshold too small")
+    assert(delta,"Error: Incompatible data, threshold may be too small")
     
 end
