@@ -3,12 +3,12 @@ function [dydt] = sir(t,y,A,B)
 % This function provides the structure (dydt is a 3 coloumns matrix) of the system of Ordinary
 % Differential Equations describing the SIR model. 
 
-% It is fed with y (a 3 coloumns matrix) and the transmission rate (A) and 
-% removal rate (B) constants.
+% It is fed with y (a 3 columns matrix), the transmission rate (A) and 
+% removal rate (B) constants (SIR parameters).
 
-% y(1) = S(t) (susceptibles) while y(2) = I(t) (infected).
+% y(:,1) = y(1) = S(t) (susceptibles), y(2) = I(t) (infected) and y(3) = R_m(t).
 
-% It returns dydt, a coloumn vector with 3 raws (initialized with elements 0), and in each column a
+% It returns dydt, a 3 column matrix (initialized with elements 0), and in each column a
 % specific differential equation (from the SIR model system) is allocated
 % following the system (1) in the README Introduction.
 
