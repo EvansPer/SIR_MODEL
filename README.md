@@ -54,8 +54,16 @@ The idea behind this code is simple: once some initial parameters are configured
 
 The structure of the project is the following:
 
-1. The [data_config.m](https://github.com/EvansPer/SIR_MODEL/blob/main/data_config.m) script imports the COVID-19 dataset and other variables from my path and saves them in a data frame called [dataframe.mat](https://github.com/EvansPer/SIR_MODEL/blob/main/dataframe.m). 
+1. The [data_config.m](https://github.com/EvansPer/SIR_MODEL/blob/main/data_config.m) script imports the COVID-19 dataset and other variables useful to initialize the ODE function from my path and saves them in a data frame called [dataframe.mat](https://github.com/EvansPer/SIR_MODEL/blob/main/dataframe.m). 
 2. Once dataframe.mat is generated (it'll be always saved inside the project unless new updates are added to the config file), it can be loaded by the main script [SIR_simulation.m](https://github.com/EvansPer/SIR_MODEL/blob/main/SIR_simulation.m).
 3. The SIR_simulation can then call the functions [normalization](https://github.com/EvansPer/SIR_MODEL/blob/main/FUNCTIONS/normalization.m), [sir_param_determination](https://github.com/EvansPer/SIR_MODEL/blob/main/FUNCTIONS/sir_param_determination.m) and [model_R](https://github.com/EvansPer/SIR_MODEL/blob/main/SFUNCTIONS/model_R.m).
+4. The function input is the matrix called "data" containing all the raw acquisitions imported by the Minister of Health. It defines all the variables to be used in the SIR model and finds what is the number of total_infected in order to obtain the normalization factor. The normalization of all vectors is then performed, as the function provides precisely these values. 
+5. The sir_param_determination function has been added to improve the efficiency of the code: while in the paper, the ODE parameters are found by visual inspection, I decided to implement a simple routine that, within two for cycles, identifies A and B.
+To do so, the input provided is:
+    - the vector parameters A and B in which it is assumed to find the proper values
+    - ODE parameters and options
+    - a raw vector to compare with the model
+    - a threshold needed to reach convergence between the raw data vector and the generated model.
+Inside the cycles, a SIR model is generated and compared with the real data. When it is compatible (within the threshold) with "active_infections", the cycles stop, the parameters A and B are identified and the model can be returned in the main script.
 
 
