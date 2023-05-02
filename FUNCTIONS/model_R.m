@@ -12,7 +12,7 @@ function [model_D_vs_R,model_D, model_recovered] = model_R(y, total_removed, dea
 % identified by the model, the guesses and the raw data.
 
 % Since R_m(t) = D(t) + R(t) (total removed = deaths + recovered), it is
-% possible to aclculate R(t) to be used in the main simulation.
+% possible to calculate R(t) to be used in the main simulation.
 
     D_0_guess = max(deaths);
     k_guess = 0.1;
