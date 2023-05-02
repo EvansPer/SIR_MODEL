@@ -34,7 +34,6 @@ clc; close all; clearvars;
 load("dataframe.mat","data","time","tspan","y0","options","A","B","threshold");
 
 addpath(genpath("FUNCTIONS"));
-addpath(genpath("GRAPHS"));
 addpath(genpath("TESTS"));
 
 [new_positives,active_infections,total_removals,total_infected,deaths,recovers] = normalization(data);
