@@ -7,14 +7,14 @@
 * [SOME RESULTS](#SOME-RESULTS)
 
 
-# ABSTRACT
+## ABSTRACT
 
 This project aims to replicate and analyze the results proposed by Argha Mondal et al. (https://doi.org/10.1016/j.chaos.2020.110057) in their attempt to model and predict the behaviour of the COVID-19 spread in several regions of the world in a period that ranges from 02/26/2020 to 08/01/2020. 
 More specifically, I focused my attention on the Italian case at the same time interval, deploying a slightly modified version of the well-known SIR model. 
 The paper provides a detailed methodology from a theoretical point of view, yet the authors still rely on an approximated approach to find the best fit of the models deployed in their analysis (such as a trial-and-error method and visual inspection). 
 Therefore, I tried and managed to add some iterative cycles in order to find the best values of the ODE parameters describing the SIR model, along with a function providing an automatic way to find the best initial guesses that accommodate a fit on its actual data. 
 
-# INTRODUCTION
+## INTRODUCTION
 
 Infection diseases such as COVID-19 represent a significant threat to the public health. The ability to predict the evolution of a virus endemic or pandemic could make the difference in the infected/dead count, along with much more aware management of the infrastructures and available resources.
 One possible solution to describe and foresee the evolution of a pandemic would be the deployment of the so-called SIR model (Susceptibles - Infected - Recovered) modelled by three ordinary differential equations (ODE) of the form:
@@ -48,7 +48,8 @@ $$ R(t) = R_m(t) - D(t). \space\space\space\space (5) $$
 
 where clearly the first variable coincides with the third solution of the SIR problem and D(t) is the fitting model just evaluated.
 
-# THE CODE
+## THE CODE
 
 The idea behind this code is simple: once some initial parameters are configured, it is possible to launch the simulation, whose function will try to adapt the models as much as possible to the raw data provided, returning in good approximation a model not only capable of describing the punctual evolution of the system but to extrapolating and forecast it, too.
+
 
