@@ -71,7 +71,8 @@ Inside the cycles, a SIR model is generated and compared with the real data. Whe
     - The $D = D(R_m)$ fit and D(t) time profile
     - The SIR solution time evolution
     - The reproductive rate time profile 
-    It generates a folder [GRAPHS](https://github.com/EvansPer/SIR_MODEL/blob/main/FUNCTIONS/GRAPHS) inside the [FUNCTIONS](https://github.com/EvansPer/SIR_MODEL/blob/main/FUNCTIONS) folder and stores the images inside.
+ 
+   It generates a folder [GRAPHS](https://github.com/EvansPer/SIR_MODEL/blob/main/FUNCTIONS/GRAPHS) inside the [FUNCTIONS](https://github.com/EvansPer/SIR_MODEL/blob/main/FUNCTIONS) folder and stores the images inside.
 All the previous functions are found inside the [FUNCTIONS](https://github.com/EvansPer/SIR_MODEL/blob/main/FUNCTIONS) folder, which contains in total the following functions:
     - [model_R](https://github.com/EvansPer/SIR_MODEL/tree/main/FUNCTIONS/model_R.m)
     - [model_fitting](https://github.com/EvansPer/SIR_MODEL/tree/main/FUNCTIONS/model_fitting.m)
