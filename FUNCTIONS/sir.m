@@ -8,7 +8,7 @@ function [dydt] = sir(t,y,A,B)
 
 % y(1) = S(t) (susceptibles) while y(2) = I(t) (infected).
 
-% It returns dydt, a coloumn vector with 3 raws (of elements 0), and in each raw a
+% It returns dydt, a coloumn vector with 3 raws (initialized with elements 0), and in each column a
 % specific differential equation (from the SIR model system) is allocated
 % following the system (1) in the README Introduction.
 
