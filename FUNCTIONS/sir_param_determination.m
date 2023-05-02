@@ -5,7 +5,7 @@ function [t,y] = sir_param_determination(A,B,tspan,y0,options,active_infections,
 % of ODE, [t,y].
 
 % It is fed with tspan, y0 and options, used by the ODE45 function to build the 3 ODE
-% solutions (commented in the data_config.m file), while active_infections is the raw data 
+% solutions (integration time, Cauchy starting point, ODE45 options), while "active_infections" is the raw data 
 % vector imported by SIR_simulation, along with "threshold".
 
 % The duoble iterative cycle spans over the 2 vectors A and B in which I
