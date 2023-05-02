@@ -3,13 +3,13 @@ function [new_positives,active_infections,total_removals,total_infected,deaths,r
 % This function provides the normilized variables extracted from the "data"
 % dataframe to be fitted with the ODE solutions. 
 
-% It is fed with the dataframe "data" and returns the normalized vectors of
+% It is fed with the dataframe "data" (matrix containing the raw data of the virus evolution) and returns the normalized vectors of
 % interest.
 
 % The best approach in this situations is to scale down every variable to the normalized ODE solution
 % rather than scaling the former up, losing track of variables interdependence.
 
-% The first 4 variables are defined as vectors from raw 1 to 161 of "data"
+% The first 4 variables are defined as vectors from raw 1 to 161 (thus, from 02/26 to 08/01/2020 of "data"
 % and coloumn 6,8,9,10, respectively.
 
 % new_positives = I(t) 
