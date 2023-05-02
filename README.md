@@ -52,4 +52,10 @@ where clearly the first variable coincides with the third solution of the SIR pr
 
 The idea behind this code is simple: once some initial parameters are configured, it is possible to launch the simulation, whose function will try to adapt the models as much as possible to the raw data provided, returning in good approximation a model not only capable of describing the punctual evolution of the system but to extrapolating and forecast it, too.
 
+The structure of the project is the following:
+
+1. The [data_config.m](https://github.com/EvansPer/SIR_MODEL/blob/main/data_config.m) script imports the COVID-19 dataset and other variables from my path and saves them in a data frame called [dataframe.mat](https://github.com/EvansPer/SIR_MODEL/blob/main/dataframe.m). 
+2. Once dataframe.mat is generated (it'll be always saved inside the project unless new updates are added to the config file), it can be loaded by the main script [SIR_simulation.m](https://github.com/EvansPer/SIR_MODEL/blob/main/SIR_simulation.m).
+3. The SIR_simulation can then call the functions [normalization](https://github.com/EvansPer/SIR_MODEL/blob/main/FUNCTIONS/normalization.m), [sir_param_determination](https://github.com/EvansPer/SIR_MODEL/blob/main/FUNCTIONS/sir_param_determination.m) and [model_R](https://github.com/EvansPer/SIR_MODEL/blob/main/SFUNCTIONS/model_R.m).
+
 
