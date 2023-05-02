@@ -1,12 +1,12 @@
 function test_sir_param_determination_validation()
 
-% This test verifies that, provided the true value of [t_true,y_true]
-% calculated with the function sir A_true and B_true, an error arises when the same
-% parameter are extracted by the function sir_param_determination and compared
+% This test verifies that, provided the true value of [t_true,y_true],
+% (calculated with the function sir) A_true and B_true, an error arises when the same
+% parameters are extracted by the function sir_param_determination and compared
 % with A_true and B_true. If the assert condition (which compares the value of A_true and A,
 % B_true and B with a threshold of 1e-8) is false, then the test fails.
 
-% It is fed with:
+% It tested function is fed with:
 % - the 2 ODE parameters A_true and B_true
 % - time range tspan and Cauchy initial condition y0
 % - The simulated vector active_infections and a threshold
