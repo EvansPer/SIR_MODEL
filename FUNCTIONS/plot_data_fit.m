@@ -15,12 +15,12 @@ function plot_data_fit(time,t,y,model_D_vs_R,model_D,model_recovered,model_total
 
     load("Norm_dataset.mat","total_removals","new_positives","active_infections","deaths","recovers","total_infected");
     
-    figure;
+    figure('units','normalized','outerposition',[0 0 1 1]);
 
     subplot(2,2,1);
     plot(time,active_infections,"*","LineWidth",1); hold on;
     plot(t,y(:,2),"--","LineWidth",1); hold off;
-    legend("Active infections","SIR I(t)","Location","east");
+    legend("Active infections","SIR I(t)","Location","northeast");
     grid on;
     xlabel("Time [days]","FontWeight","bold");
     ylabel("Active infections / I(t)","FontWeight","bold");
@@ -28,7 +28,7 @@ function plot_data_fit(time,t,y,model_D_vs_R,model_D,model_recovered,model_total
     subplot(2,2,2);
     plot(time,total_removals,".","LineWidth",1); hold on;
     plot(t,y(:,3),"--","LineWidth",1); hold off;
-    legend("Removed","SIR R_m(t)","Location","east");
+    legend("Removed","SIR R_m(t)","Location","southeast");
     grid on;
     xlabel("Time [days]","FontWeight","bold");
     ylabel("Removed / R_m(t)","FontWeight","bold")
@@ -36,7 +36,7 @@ function plot_data_fit(time,t,y,model_D_vs_R,model_D,model_recovered,model_total
     subplot(2,2,3);
     plot(time,recovers,"o","LineWidth",1); hold on;
     plot(t,model_recovered,"--","LineWidth",1); hold off;
-    legend("Recovers","Model R(t)","Location","east");
+    legend("Recovers","Model R(t)","Location","southeast");
     grid on;
     xlabel("Time [days]","FontWeight","bold");
     ylabel("Recovered / R(t)","FontWeight","bold");
@@ -44,7 +44,7 @@ function plot_data_fit(time,t,y,model_D_vs_R,model_D,model_recovered,model_total
     subplot(2,2,4);
     plot(time,total_infected,"Marker","hexagram","LineWidth",1); hold on;
     plot(t,model_total_infected,"--","LineWidth",1); hold off;
-    legend("Total infected","SIR I_T(t)","Location","east");
+    legend("Total infected","SIR I_T(t)","Location","southeast");
     grid on;
     xlabel("Time [days]","FontWeight","bold");
     ylabel("Total infected / I_T(t)","FontWeight","bold");
@@ -55,7 +55,7 @@ function plot_data_fit(time,t,y,model_D_vs_R,model_D,model_recovered,model_total
 
     saveas(gcf, '././FUNCTIONS/GRAPHS/data_vs_model.jpg');
 
-    figure;
+    figure('units','normalized','outerposition',[0 0 1 1]);
     plot(t,y,"LineWidth",1);
     legend("Susceptibles","Infeted","Removed","Location","east");
     grid on;
@@ -66,7 +66,7 @@ function plot_data_fit(time,t,y,model_D_vs_R,model_D,model_recovered,model_total
     saveas(gcf, '././FUNCTIONS/GRAPHS/SIR_model.jpg');
 
     
-    figure;
+    figure('units','normalized','outerposition',[0 0 1 1]);
     plot(t,R_e,"o","LineWidth",1);
     legend("Reproductive rate","Location","east");  
     grid on;
@@ -75,8 +75,8 @@ function plot_data_fit(time,t,y,model_D_vs_R,model_D,model_recovered,model_total
 
     saveas(gcf, '././FUNCTIONS/GRAPHS/R_e.jpg');
 
-    figure;
-
+    
+    figure('units','normalized','outerposition',[0 0 1 1]);
     subplot(1,2,1);
     plot(total_removals,deaths,"*","LineWidth",1);
     hold on;
