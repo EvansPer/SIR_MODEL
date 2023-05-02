@@ -7,7 +7,7 @@ function test_sir_param_determination_syntax()
 % - the 2 ODE parameters A and B
 % - time range tspan and Cauchy initial condition y0
 % - no specific option (irrelevant, since odeset deals with integration
-%   properties of the algorithm 
+%   properties of the algorithm) 
 % - a raw data vector active_infections and a threshold
 
 % By calling the function, if the parameters are wrong, a syntax error
