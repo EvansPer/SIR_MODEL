@@ -1,12 +1,11 @@
 function test_model_R_validation()
 
-% This test verifies that, provided some parameters and raw data, the
+% This test verifies that, provided the fit parameters and raw data, the
 % function model_R can return values compatible with the expected values
 % obtained by raw data and parameters.
 
 % It is fed with param D_0 and k, raw data y, total_removed and deaths.
-% From here, the expected values to be compared with the model provided by
-% model_r function are generated.
+% From here, the expected values to be compared with the model (provided by model_R) are generated.
 
 % The model_R function is then called and its results are compared with the
 % expected ones. Error arises if the compatibility is lower than a certain
