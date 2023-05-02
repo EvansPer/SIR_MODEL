@@ -13,7 +13,7 @@ function plot_data_fit(time,t,y,model_D_vs_R,model_D,model_recovered,model_total
 % It generates a subfolder named "GRAPHS" and saves all the plots inside
 % this folder.
 
-    load("Norm_dataset.mat","total_removals","new_positives","active_infections","deaths","recovers","total_infected","time");
+    load("Norm_dataset.mat","total_removals","new_positives","active_infections","deaths","recovers","total_infected");
     
     figure;
 
@@ -22,50 +22,58 @@ function plot_data_fit(time,t,y,model_D_vs_R,model_D,model_recovered,model_total
     plot(t,y(:,2),"--","LineWidth",1); hold off;
     legend("Active infections","SIR I(t)","Location","east");
     grid on;
+    xlabel("Time [days]","FontWeight","bold");
+    ylabel("Active infections / I(t)","FontWeight","bold");
 
     subplot(2,2,2);
     plot(time,total_removals,".","LineWidth",1); hold on;
     plot(t,y(:,3),"--","LineWidth",1); hold off;
     legend("Removed","SIR R_m(t)","Location","east");
     grid on;
+    xlabel("Time [days]","FontWeight","bold");
+    ylabel("Removed / R_m(t)","FontWeight","bold")
 
     subplot(2,2,3);
     plot(time,recovers,"o","LineWidth",1); hold on;
     plot(t,model_recovered,"--","LineWidth",1); hold off;
-    legend("Recevers","Model R(t)","Location","east");
+    legend("Recovers","Model R(t)","Location","east");
     grid on;
+    xlabel("Time [days]","FontWeight","bold");
+    ylabel("Recovered / R(t)","FontWeight","bold");
 
     subplot(2,2,4);
     plot(time,total_infected,"Marker","hexagram","LineWidth",1); hold on;
     plot(t,model_total_infected,"--","LineWidth",1); hold off;
     legend("Total infected","SIR I_T(t)","Location","east");
     grid on;
+    xlabel("Time [days]","FontWeight","bold");
+    ylabel("Total infected / I_T(t)","FontWeight","bold");
     
     if ~exist("GRAPHS","dir")
     mkdir("GRAPHS");
     end
 
-    data_vs_model = fullfile("GRAPHS","data_vs_model.jpg");
-    saveas(gcf, data_vs_model);
-   
+    saveas(gcf, '././GRAPHS/data_vs_model.jpg');
 
     figure;
     plot(t,y,"LineWidth",1);
     legend("Susceptibles","Infeted","Removed","Location","east");
     grid on;
+    xlabel("Time [days]","FontWeight","bold");
+    ylabel("SIR solutions","FontWeight","bold");
 
-    SIR_model = fullfile("GRAPHS","SIR_model.jpg");
-    saveas(gcf, SIR_model);
+    
+    saveas(gcf, '././GRAPHS/SIR_model.jpg');
 
     
     figure;
     plot(t,R_e,"o","LineWidth",1);
     legend("Reproductive rate","Location","east");  
     grid on;
+    xlabel("Time [days]","FontWeight","bold");
+    ylabel("Reproductive rate","FontWeight","bold");
 
-    R_e = fullfile("GRAPHS","R_e.jpg");
-    saveas(gcf, R_e);
-    
+    ssaveas(gcf, '././GRAPHS/R_e.jpg');
 
     figure;
 
@@ -76,6 +84,8 @@ function plot_data_fit(time,t,y,model_D_vs_R,model_D,model_recovered,model_total
     hold off;
     legend("Raw data","Fit model","Location","east")
     grid on;
+    xlabel("Total removed","FontWeight","bold");
+    ylabel("Deaths","FontWeight","bold");
     
     subplot(1,2,2);
     plot(time,deaths,"diamond","LineWidth",1); hold on;
@@ -83,8 +93,9 @@ function plot_data_fit(time,t,y,model_D_vs_R,model_D,model_recovered,model_total
     hold off;
     legend("Deaths","Fit D(R_m)","Location","east");  
     grid on;
+    xlabel("Time [days]","FontWeight","bold");
+    ylabel("Deaths","FontWeight","bold");
     
-    model_R_plot = fullfile("GRAPHS","model_R_plot.jpg");
-    saveas(gcf, model_R_plot);
+    saveas(gcf, '././GRAPHS/model_R_plot.jpg');
 
 end
