@@ -5,7 +5,7 @@ function test_sir_time_profile()
 
 % 1) The total number of people must be normalized to 1
 % 2) The number of susceptibles decreases over time
-% 3) The number of infecteds increases up to its max value and then decreases over time
+% 3) The number of infected increases up to its max value and then decreases over time
 % 4) The number of recovered individuals increases over time
 
 % Test 1, A = 0.18, B = 0.037
