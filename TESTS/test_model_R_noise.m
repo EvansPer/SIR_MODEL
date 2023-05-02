@@ -1,4 +1,5 @@
 function test_model_R_noise()
+
 % This test verifies, provided a correct input with random fluctuations,
 % that the function model_R is capable of returning the correct value
 % within the selected threshold.
