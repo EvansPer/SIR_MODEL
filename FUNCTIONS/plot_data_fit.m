@@ -53,7 +53,7 @@ function plot_data_fit(time,t,y,model_D_vs_R,model_D,model_recovered,model_total
     mkdir("GRAPHS");
     end
 
-    saveas(gcf, '././GRAPHS/data_vs_model.jpg');
+    saveas(gcf, '././FUNCTIONS/GRAPHS/data_vs_model.jpg');
 
     figure;
     plot(t,y,"LineWidth",1);
@@ -63,7 +63,7 @@ function plot_data_fit(time,t,y,model_D_vs_R,model_D,model_recovered,model_total
     ylabel("SIR solutions","FontWeight","bold");
 
     
-    saveas(gcf, '././GRAPHS/SIR_model.jpg');
+    saveas(gcf, '././FUNCTIONS/GRAPHS/SIR_model.jpg');
 
     
     figure;
@@ -73,7 +73,7 @@ function plot_data_fit(time,t,y,model_D_vs_R,model_D,model_recovered,model_total
     xlabel("Time [days]","FontWeight","bold");
     ylabel("Reproductive rate","FontWeight","bold");
 
-    ssaveas(gcf, '././GRAPHS/R_e.jpg');
+    saveas(gcf, '././FUNCTIONS/GRAPHS/R_e.jpg');
 
     figure;
 
@@ -96,6 +96,6 @@ function plot_data_fit(time,t,y,model_D_vs_R,model_D,model_recovered,model_total
     xlabel("Time [days]","FontWeight","bold");
     ylabel("Deaths","FontWeight","bold");
     
-    saveas(gcf, '././GRAPHS/model_R_plot.jpg');
+    saveas(gcf, '././FUNCTIONS/GRAPHS/model_R_plot.jpg');
 
 end
