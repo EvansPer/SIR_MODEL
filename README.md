@@ -65,5 +65,12 @@ To do so, the input provided is:
     - a raw vector to compare with the model
     - a threshold needed to reach convergence between the raw data vector and the generated model.
 Inside the cycles, a SIR model is generated and compared with the real data. When it is compatible (within the threshold) with "active_infections", the cycles stop, the parameters A and B are identified and the model can be returned in the main script.
-
+6. The function model_R is fed with the generated model y (thus the solutions of the SIR ODE system expressed in eq. (1)) and the raw data vectors total_removed and deaths. It aims to find, through an automated approach, the best fit possible for eq. (4). Thus, by means of the least squares method, the non-linear fit parameters D_0 and k are identified, and the function can return this model, along with the model that describes the time profile of the recovered raw vector. 
+7. Finally, the [function plot_data_fit](https://github.com/EvansPer/SIR_MODEL/blob/main/FUNCTIONS/plot_data_fit.m) is called to produce 4 different images:
+    - The I(t), R_m(t), R(t) and I_T(t) data plus fitting model
+    - The D = D(R_m) fit and D(t) time profile
+    - The SIR solution time evolution
+    - The reproductive rate time profile 
+    It generates a folder [GRAPHS](https://github.com/EvansPer/SIR_MODEL/blob/main/FUNCTIONS/GRAPHS) inside the [FUNCTIONS](https://github.com/EvansPer/SIR_MODEL/blob/main/FUNCTIONS) folder and stores the images inside.
+All the previous functions are found inside the [FUNCTIONS](https://github.com/EvansPer/SIR_MODEL/blob/main/FUNCTIONS) folder, while the tests are collected in the [TESTS](https://github.com/EvansPer/SIR_MODEL/blob/main/TESTS) folder.
 
