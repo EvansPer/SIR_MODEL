@@ -17,6 +17,6 @@ y0 = [0.999 0.001 0];
 options = odeset("MaxStep",4.1); % Upper bound on the step size
 A = 0:0.01:1;                    % Initial increasing exponential growth parameter
 B = 0:0.001:0.1;                 % Final decreasing exponential decay parameter
-threshold = 0.007;               % Threshold set to identify a and b
+threshold = 0.007;               % Threshold set to identify A and B
 
 save("dataframe.mat");
