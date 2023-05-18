@@ -2,7 +2,7 @@
 
 ## Table of content
 * [ABSTRACT](#ABSTRACT)
-* [HOW TO](HOW-TO)
+* [HOW TO](#HOW-TO)
 * [INRODUCTOIN](#THE-THEORY)
 * [THE CODE](#THE-CODE)
 * [RESULTS](#RESULTS)
