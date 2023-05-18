@@ -93,15 +93,16 @@ Inside the cycles, a SIR model is generated and compared with the real data. Whe
     A folder [GRAPHS](https://github.com/EvansPer/SIR_MODEL/blob/main/FUNCTIONS/GRAPHS) is generated to store the plotted images.
     
 All the previous functions are found inside the [FUNCTIONS](https://github.com/EvansPer/SIR_MODEL/blob/main/FUNCTIONS) folder, which contains in total the following functions:
-    - [model_R](https://github.com/EvansPer/SIR_MODEL/tree/main/FUNCTIONS/model_R.m)
-    - [model_fitting](https://github.com/EvansPer/SIR_MODEL/tree/main/FUNCTIONS/model_fitting.m)
-    - [normalization](https://github.com/EvansPer/SIR_MODEL/tree/main/FUNCTIONS/normalization.m)
-    - [plot_model_vs_data](https://github.com/EvansPer/SIR_MODEL/blob/main/FUNCTIONS/plot_model_vs_data.m)
-    - [plot_model](https://github.com/EvansPer/SIR_MODEL/blob/main/FUNCTIONS/plot_model.m)
-    - [plot_reproductive_rate](https://github.com/EvansPer/SIR_MODEL/blob/main/FUNCTIONS/plot_reproductive_rate.m)
-    - [plot_death_model](https://github.com/EvansPer/SIR_MODEL/blob/main/FUNCTIONS/plot_death_model.m)
-    - [sir](https://github.com/EvansPer/SIR_MODEL/tree/main/FUNCTIONS/sir.m)
-    - [sir_param_determination](https://github.com/EvansPer/SIR_MODEL/tree/main/FUNCTIONS/sir_param_determination.m)
+ - [model_R](https://github.com/EvansPer/SIR_MODEL/tree/main/FUNCTIONS/model_R.m)
+ - [model_fitting](https://github.com/EvansPer/SIR_MODEL/tree/main/FUNCTIONS/model_fitting.m)
+ - [normalization](https://github.com/EvansPer/SIR_MODEL/tree/main/FUNCTIONS/normalization.m)
+ - [plot_model_vs_data](https://github.com/EvansPer/SIR_MODEL/blob/main/FUNCTIONS/plot_model_vs_data.m)
+ - [plot_model](https://github.com/EvansPer/SIR_MODEL/blob/main/FUNCTIONS/plot_model.m)
+ - [plot_reproductive_rate](https://github.com/EvansPer/SIR_MODEL/blob/main/FUNCTIONS/plot_reproductive_rate.m)
+ - [plot_death_model](https://github.com/EvansPer/SIR_MODEL/blob/main/FUNCTIONS/plot_death_model.m)
+ - [sir](https://github.com/EvansPer/SIR_MODEL/tree/main/FUNCTIONS/sir.m)
+ - [sir_param_determination](https://github.com/EvansPer/SIR_MODEL/tree/main/FUNCTIONS/sir_param_determination.m)
+   
 
 The function tests are instead collected in the [TESTS](https://github.com/EvansPer/SIR_MODEL/blob/main/TESTS) folder.
 
