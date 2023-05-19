@@ -1,9 +1,21 @@
 %% DATA CONFIGURATION
 
-% In this code the data provided by the Italian Minister of Health are
-% saved into the "data" variable and the "time" interval vector is generated
+% In this code the data provided by the Italian Minister of Health (please refer to the following 
+% repository: 
+
+% https://github.com/pcm-dpc/COVID-19/blob/master/dati-andamento-nazionale/dpc-covid19-ita-andamento-nazionale.csv )
+
+% are saved into the "data" variable and the "time" interval vector is generated
 % (starting from 02/24/2020 and ending 08/01/2020), along with the 
-% parameters necessary to run an ODE routine. 
+% parameters necessary to run an ODE routine:
+
+% - tspan: 1x2 vector with initial and final time
+% - y0: 1x3 vector containing ODE initial condition
+% - options: non mandatory, sets the uppur bound for the step size integration
+% - A, B: vectors containing the increasing and decreasing expnential
+% parameters.
+% - threshold: parameter set to identify A and B
+
 % The code then saves all these variables in a .mat dataframe
 
 data = readmatrix("DATI.xlsx");
