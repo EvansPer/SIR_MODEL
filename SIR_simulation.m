@@ -46,5 +46,7 @@ R_e = y(:,1).*A/B;
 
 model_total_infected = (y(:,3) + y(:,2));
 
+mkdir GRAPHS;
+
 plot_data_fit(time,t,y,model_D_vs_R,model_D,model_recovered,model_total_infected,R_e);
 
