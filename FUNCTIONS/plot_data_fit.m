@@ -1,4 +1,4 @@
-function plot_data_fit(time,t,y,model_D_vs_R,model_D,model_recovered,model_total_infected,R_e)
+function plot_model_vs_data(time,t,y,model_D_vs_R,model_D,model_recovered,model_total_infected,R_e)
 
 % This function provides the graphical visualization of all the variables
 % deployed in the simulation.
@@ -49,53 +49,8 @@ function plot_data_fit(time,t,y,model_D_vs_R,model_D,model_recovered,model_total
     xlabel("Time [days]","FontWeight","bold");
     ylabel("Total infected / I_T(t)","FontWeight","bold");
     
-    if ~exist("GRAPHS","dir")
-    mkdir("GRAPHS");
-    end
-
-    saveas(gcf, '././FUNCTIONS/GRAPHS/data_vs_model.jpg');
-
-    figure('units','normalized','outerposition',[0 0 1 1]);
-    plot(t,y,"LineWidth",1);
-    legend("Susceptibles","Infeted","Removed","Location","east");
-    grid on;
-    xlabel("Time [days]","FontWeight","bold");
-    ylabel("SIR solutions","FontWeight","bold");
-
-    
-    saveas(gcf, '././FUNCTIONS/GRAPHS/SIR_model.jpg');
-
-    
-    figure('units','normalized','outerposition',[0 0 1 1]);
-    plot(t,R_e,"o","LineWidth",1);
-    legend("Reproductive rate","Location","east");  
-    grid on;
-    xlabel("Time [days]","FontWeight","bold");
-    ylabel("Reproductive rate","FontWeight","bold");
-
-    saveas(gcf, '././FUNCTIONS/GRAPHS/R_e.jpg');
-
-    
-    figure('units','normalized','outerposition',[0 0 1 1]);
-    subplot(1,2,1);
-    plot(total_removals,deaths,"*","LineWidth",1);
-    hold on;
-    plot(model_D_vs_R);
-    hold off;
-    legend("Raw data","Fit model","Location","east")
-    grid on;
-    xlabel("Total removed","FontWeight","bold");
-    ylabel("Deaths","FontWeight","bold");
-    
-    subplot(1,2,2);
-    plot(time,deaths,"diamond","LineWidth",1); hold on;
-    plot(t,model_D,"--","LineWidth",1);
-    hold off;
-    legend("Deaths","Fit D(R_m)","Location","east");  
-    grid on;
-    xlabel("Time [days]","FontWeight","bold");
-    ylabel("Deaths","FontWeight","bold");
-    
-    saveas(gcf, '././FUNCTIONS/GRAPHS/model_R_plot.jpg');
+    Folder = cd;
+    Folder = fullfile(Folder, '..');
+    saveas(gcf,fullfile(Folder,"/GRAPHS/MODEL_vs_DATA.jpg"));
 
 end
