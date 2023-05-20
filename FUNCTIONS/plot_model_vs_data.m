@@ -47,8 +47,6 @@ function plot_model_vs_data(time,t,y,active_infections,total_removals,recovers,t
     xlabel("Time [days]","FontWeight","bold");
     ylabel("Total infected / I_T(t)","FontWeight","bold");
     
-    Folder = cd;
-    Folder = fullfile(Folder, '..');
-    saveas(gcf,fullfile(Folder,"/GRAPHS/MODEL_vs_DATA.jpg"));
+    saveas(gcf,"GRAPHS/MODEL_vs_DATA.jpg");
 
 end
