@@ -1,4 +1,4 @@
-function [t,y,A,B] = sir_param_determination(A,B,tspan,y0,options,active_infections,threshold)
+function [t,y,A_0,B_0] = sir_param_determination(A,B,tspan,y0,options,active_infections,threshold)
 
 % This function provides the parameters "A" and "B" describing the ODE
 % reported in the introduction, and then build the solution for that system
@@ -28,8 +28,8 @@ function [t,y,A,B] = sir_param_determination(A,B,tspan,y0,options,active_infecti
             if delta == true
                 disp("A = " + A(i) + ", B = " + B(j) + ", y_{model} - y_{active inf} = " + error);
                 delta = true;
-                A = A(i);
-                B = B(j);
+                A_0 = A(i);
+                B_0 = B(j);
                 break
             end 
         end
