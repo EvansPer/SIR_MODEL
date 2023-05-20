@@ -31,16 +31,16 @@
 
 clc; close all; clearvars;
 
-load("dataframe.mat","data","time","tspan","y0","options","A","B","threshold");
+load("dataframe.mat","data","duration","time","tspan","y0","options","A","B","threshold");
 
 addpath(genpath("FUNCTIONS"));
 addpath(genpath("TESTS"));
 
-[new_positives,active_infections,total_removals,total_infected,deaths,recovers] = normalization(data);
+[new_positives,active_infections,total_removals,total_infected,deaths,recovers] = normalization(data,duration);
 
-[t,y] = sir_param_determination(A,B,tspan,y0,options,active_infections,threshold);
+[t,y,A_0,B_0] = sir_param_determination(A,B,tspan,y0,options,active_infections,threshold);
 
-R_e = y(:,1).*A/B;
+R_e = y(:,1).*A_0/B_0;
 
 [model_D_vs_R,model_D, model_recovered] = model_R(y,total_removals,deaths);
 
@@ -48,5 +48,8 @@ model_total_infected = (y(:,3) + y(:,2));
 
 mkdir GRAPHS;
 
-plot_data_fit(time,t,y,model_D_vs_R,model_D,model_recovered,model_total_infected,R_e);
+plot_model_vs_data(time,t,y,active_infections,total_removals,recovers,total_infected,model_recovered,model_total_infected)
+plot_model(t,y);
+plot_reproductive_rate(t,R_e);
+plot_death_model(t,time,total_removals,deaths,model_D,model_D_vs_R);
 
