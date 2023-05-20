@@ -1,4 +1,4 @@
-function plot_model_vs_data(time,t,y,model_D_vs_R,model_D,model_recovered,model_total_infected,R_e)
+function plot_model_vs_data(time,t,y,active_infections,total_removals,recovers,total_infected,model_recovered,model_total_infected)
 
 % This function provides the graphical visualization of all the variables
 % deployed in the simulation.
@@ -12,8 +12,6 @@ function plot_model_vs_data(time,t,y,model_D_vs_R,model_D,model_recovered,model_
 
 % It generates a subfolder named "GRAPHS" and saves all the plots inside
 % this folder.
-
-    load("Norm_dataset.mat","total_removals","new_positives","active_infections","deaths","recovers","total_infected");
     
     figure('units','normalized','outerposition',[0 0 1 1]);
 
