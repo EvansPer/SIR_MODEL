@@ -13,7 +13,7 @@ function test_model_R_noise()
 
     D_0 = 5;
     k = 2.3;
-    rng("default"); % Default random seed seed
+    rng(1); % Random seed = 1
     y = [linspace(1,20,100)',linspace(1,20,100)',linspace(1,20,100)'] + randn(100,3);
     total_removed = linspace(1,20,100)';
     deaths = D_0*(1-exp(-k*total_removed)) + rand(100,1);
