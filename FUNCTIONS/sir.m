@@ -12,8 +12,11 @@ function [dydt] = sir(t,y,A,B)
 % specific differential equation (from the SIR model system) is allocated
 % following the system (1) in the README Introduction.
 
-        dydt = zeros(3,1);
-        dydt(1) = -A*y(1)*y(2);
-        dydt(2) = A*y(1)*y(2) - B*y(2);
-        dydt(3) = B*y(2);
+    Susc = y(1);
+    Infec = y(2);
+
+    dydt = zeros(3,1);
+    dydt(1) = -A*Susc*Infec;
+    dydt(2) = A*Susc*Infec - B*Infec;
+    dydt(3) = B*Infec;
 end
