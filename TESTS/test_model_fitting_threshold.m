@@ -8,7 +8,7 @@ function test_model_fitting_threshold()
 % value.
 
 % The error arises since the threshold is too small
-
+    rng(1); % Random seed = 1
     active_infections = (100:150)';
     a = (100:150)' + rand(51,1); 
     y = [(0:50)',a];
