@@ -122,4 +122,4 @@ Figure 2 shows instead the solution of the SIR system described in eq. (1), norm
 ![config](https://github.com/EvansPer/SIR_MODEL/blob/main/GRAPHS/REPRODUCTIVE_RATE.jpg)
 
 4. Figure 4: Deaths vs Total removed (left), deaths vs time (right).
-![config](https://github.com/EvansPer/SIR_MODEL/blob/main/GRAPHS/MODEL_DEATH.jpg)
+![config](https://github.com/EvansPer/SIR_MODEL/blob/main/GRAPHS/MODEL_DEATHS.jpg)
