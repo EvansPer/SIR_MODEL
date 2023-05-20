@@ -1,4 +1,4 @@
-function [new_positives,active_infections,total_removals,total_infected,deaths,recovers] = normalization(data)
+function [new_positives,active_infections,total_removals,total_infected,deaths,recovers] = normalization(data,duration)
 
 % This function provides the normilized variables extracted from the "data"
 % dataframe to be fitted with the ODE solutions. 
@@ -9,7 +9,7 @@ function [new_positives,active_infections,total_removals,total_infected,deaths,r
 % The best approach in this situations is to scale down every variable to the normalized ODE solution
 % rather than scaling the former up, losing track of variables interdependence.
 
-% The first 4 variables are defined as vectors from raw 1 to 161 (thus, from 02/26 to 08/01/2020 of "data"
+% The first 4 variables are defined as vectors from raw 1 to duration = 161 (thus, from 02/26 to 08/01/2020 of "data"
 % and coloumn 6,8,9,10, respectively.
 
 % new_positives = I(t) 
@@ -21,10 +21,10 @@ function [new_positives,active_infections,total_removals,total_infected,deaths,r
 
 % Finally, it saves the generated normalized vectors in a dataframe calle "Norm_dataset.mat"
 
-    active_infections = data(1:161,6);
-    new_positives = data(1:161,8); % I(t) in the ODE
-    recovers = data(1:161,9);
-    deaths = data(1:161,10);
+    active_infections = data(1:duration,6);
+    new_positives = data(1:duration,8); % I(t) in the ODE
+    recovers = data(1:duration,9);
+    deaths = data(1:duration,10);
 
     total_removals = recovers + deaths; % R(t) in the ODE
     total_infected = total_removals + active_infections;
