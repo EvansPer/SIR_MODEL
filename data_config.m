@@ -5,21 +5,24 @@
 
 % https://github.com/pcm-dpc/COVID-19/blob/master/dati-andamento-nazionale/dpc-covid19-ita-andamento-nazionale.csv )
 
-% are saved into the "data" variable and the "time" interval vector is generated
-% (starting from 02/24/2020 and ending 08/01/2020), along with the 
-% parameters necessary to run an ODE routine:
+% are saved. More specifically:
+
+% - data: raw data matrix
+% - duration: parameter determining the analysis length 
+% - time interval: 1xduration row vector (starting from 02/24/2020 and ending 08/01/2020).
+% The starting parameters of the ODE routine are initialised:
 
 % - tspan: 1x2 vector with initial and final time
 % - y0: 1x3 vector containing ODE initial condition
-% - options: non mandatory, sets the uppur bound for the step size integration
-% - A, B: vectors containing the increasing and decreasing expnential
-% parameters.
+% - options: non mandatory, sets the upper bound for the step size integration
+% - A, B: vectors containing the increasing and decreasing expnential parameters.
 % - threshold: parameter set to identify A and B
 
 % The code then saves all these variables in a .mat dataframe
 
 data = readmatrix("DATI.xlsx");
-time = linspace(1,161,161);
+duration = 161;
+time = linspace(1,duration,duration);
 
 % Cauchy starting points: Integration time and initial starting point for
 % the ODE solution
@@ -32,4 +35,3 @@ B = 0:0.001:0.1;                 % Final decreasing exponential decay parameter
 threshold = 0.007;               % Threshold set to identify A and B
 
 save("dataframe.mat");
-save("TESTS/dataframe.mat");
