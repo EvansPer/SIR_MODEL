@@ -24,7 +24,7 @@ function [t,y,A_0,B_0] = sir_param_determination(A,B,tspan,y0,options,active_inf
         for j = 1:length(B)
             sir_func = @(t,y) sir(t,y,A(i),B(j));
             [t,y] = ode45(sir_func,tspan,y0,options);
-            [delta, error] = model_fitting(active_infections,y,threshold);
+            [delta, error] = distance_model_raw(active_infections,y,threshold);
             if delta == true
                 disp("A = " + A(i) + ", B = " + B(j) + ", y_{model} - y_{active inf} = " + error);
                 delta = true;
