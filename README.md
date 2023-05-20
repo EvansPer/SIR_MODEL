@@ -111,15 +111,15 @@ The function tests are instead collected in the [TESTS](https://github.com/Evans
 Figure 1 shows the time profile of the raw data fitted witht the SIR model solutions adapted to the spefic case:
 
 1. Figure 1: Time evolution of the acquired variables with their fitted SIR model slution. 
-![config](https://github.com/EvansPer/SIR_MODEL/blob/main/FUNCTIONS/GRAPHS/data_vs_model.jpg)
+![config](https://github.com/EvansPer/SIR_MODEL/blob/main/GRAPHS/MODEL_vs_DATA.jpg)
 
 Figure 2 shows instead the solution of the SIR system described in eq. (1), normalized to 1.
 
 2. Figure 2: Time evolution of the SIR model. A = 0.18 and B = 0.039 (the parameters found in the paper are A = 0.18 and B = 0.037)
-![config](https://github.com/EvansPer/SIR_MODEL/blob/main/FUNCTIONS/GRAPHS/SIR_model.jpg)
+![config](https://github.com/EvansPer/SIR_MODEL/blob/main/GRAPHS/MODEL.jpg)
 
 3. Figure 3: Time evolution of the reproductive rate $R_e$
-![config](https://github.com/EvansPer/SIR_MODEL/blob/main/FUNCTIONS/GRAPHS/R_e.jpg)
+![config](https://github.com/EvansPer/SIR_MODEL/blob/main/GRAPHS/REPRODUCTIVE_RATE.jpg)
 
 4. Figure 4: Deaths vs Total removed (left), deaths vs time (right).
-![config](https://github.com/EvansPer/SIR_MODEL/blob/main/FUNCTIONS/GRAPHS/model_R_plot.jpg)
+![config](https://github.com/EvansPer/SIR_MODEL/blob/main/GRAPHS/MODEL_DEATH.jpg)
