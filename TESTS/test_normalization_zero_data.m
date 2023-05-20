@@ -9,12 +9,12 @@ function test_normalization_zero_data()
     data = zeros(duration, 10);
     [new_positives, active_infections, total_removals, total_infected, deaths, recovers] = normalization(data,duration);
     
-    assert(all(total_infected == zeros(161, 1)),"Error: provided dataset of zeros, can't divide by 0");
-    assert(all(new_positives == zeros(161, 1)),"Error: provided dataset of zeros, new_positives is empty");
-    assert(all(active_infections == zeros(161, 1)),"Error: provided dataset of zeros, active_infections is empty");
-    assert(all(total_removals == zeros(161, 1)),"Error: provided dataset of zeros, total_removals is empty");
-    assert(all(deaths == zeros(161, 1)),"Error: provided dataset of zeros, deaths is empty");
-    assert(all(recovers == zeros(161, 1)),"Error: provided dataset of zeros, recovers is empty");
+    assert(all(total_infected == zeros(duration, 1)),"Error: provided dataset of zeros, can't divide by 0");
+    assert(all(new_positives == zeros(duration, 1)),"Error: provided dataset of zeros, new_positives is empty");
+    assert(all(active_infections == zeros(duration, 1)),"Error: provided dataset of zeros, active_infections is empty");
+    assert(all(total_removals == zeros(duration, 1)),"Error: provided dataset of zeros, total_removals is empty");
+    assert(all(deaths == zeros(duration, 1)),"Error: provided dataset of zeros, deaths is empty");
+    assert(all(recovers == zeros(duration, 1)),"Error: provided dataset of zeros, recovers is empty");
    
     
     
