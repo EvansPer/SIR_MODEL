@@ -11,12 +11,12 @@ function test_distance_model_raw_threshold()
 
     rng(1); % Random seed = 1, Mersenne Twister generator
     active_infections = (100:150)';
-    a = (100:150)' + rand(51,1); 
+    a = (100:150)' + randn(51,1); 
     y = [(0:50)',a];
     threshold = 0.001;
     
     [delta, error] = distance_model_raw(active_infections, y, threshold);
     
-    assert(delta,"Error: Incompatible data, threshold may be too small")
+    assert(~delta,"Error: Unexpected behavior, threshold should be too small. Please check vector elements and error parameter");
     
 end
