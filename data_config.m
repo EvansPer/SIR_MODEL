@@ -27,7 +27,7 @@ time = linspace(1,duration,duration);
 % Cauchy starting points: Integration time and initial starting point for
 % the ODE solution
 
-tspan = [0 161]; 
+tspan = [0 duration]; 
 y0 = [0.999 0.001 0];
 options = odeset("MaxStep",4.1); % Upper bound on the step size
 A = 0:0.01:1;                    % Initial increasing exponential growth parameter
