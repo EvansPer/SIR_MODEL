@@ -1,4 +1,4 @@
-function test_model_fitting_threshold()
+function test_distance_model_raw_threshold()
 
 % This test verifies that, provided with vectors with close values but
 % a threshold too small, the function model_fitting returns a delta = false,
