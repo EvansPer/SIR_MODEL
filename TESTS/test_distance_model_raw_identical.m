@@ -1,4 +1,4 @@
-function test_model_fitting_identical()
+function test_distance_model_raw_identical()
 
 % This test verifies that, provided 2 identical vectors (active_infections
 % and y(:,2)) the model_fiting function finds no difference, thus resulting
