@@ -8,7 +8,7 @@ function test_distance_model_raw_identical()
     y = [(0:50)',(100:150)'];
     threshold = 0.001;
     
-    [delta, error] = model_fitting(active_infections, y, threshold);
+    [delta, error] = distance_model_raw(active_infections, y, threshold);
     
     assert(delta)
 
