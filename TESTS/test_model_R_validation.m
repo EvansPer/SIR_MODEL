@@ -10,7 +10,9 @@ function test_model_R_validation()
 % The model_R function is then called and its results are compared with the
 % expected ones. Error arises if the compatibility is lower than a certain
 % threshold.
-
+    
+    addpath(genpath(fullfile(pwd,"..","FUNCTIONS")));
+    
     D_0 = 5;
     k = 2.3;
 

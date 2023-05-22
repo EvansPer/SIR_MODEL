@@ -4,6 +4,8 @@ function test_distance_model_raw_identical()
 % and y(:,2)) the model_fiting function finds no difference, thus resulting
 % in delta = true and error = 0.
 
+    addpath(genpath(fullfile(pwd,"..","FUNCTIONS")));
+
     active_infections = (100:150)';
     y = [(0:50)',(100:150)'];
     threshold = 0.001;

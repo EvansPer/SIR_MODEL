@@ -12,7 +12,9 @@ function test_sir_param_determination_syntax()
 
 % By calling the function, if the parameters are wrong, a syntax error
 % would arise.
-
+    
+    addpath(genpath(fullfile(pwd,"..","FUNCTIONS")));
+    
     A = [0.1, 0.2, 0.3, 0.4];
     B = [0.5, 0.6, 0.7, 0.8];
     tspan = [0, 100];

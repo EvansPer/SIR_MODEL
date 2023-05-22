@@ -5,7 +5,9 @@ function test_normalization_zero_data()
 % be performed by dividing by normalization_fac = max(total_infected) = 0.
 
 % It is fed with a dataset of 161 raws of zeros and 10 columns
-
+    
+    addpath(genpath(fullfile(pwd,"..","FUNCTIONS")));
+    
     duration = 161;
     data = zeros(duration, 10);
     [new_positives, active_infections, total_removals, total_infected, deaths, recovers] = normalization(data,duration);

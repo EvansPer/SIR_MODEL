@@ -14,7 +14,9 @@ function test_sir_param_determination_input_validation()
 % - a void raw data vector active_infections = []
 % - a threshold
 % - a negative threshold in Test 2.
-
+    
+    addpath(genpath(fullfile(pwd,"..","FUNCTIONS")));
+    
 % Test 1
 
     A = [0.1, 0.2];

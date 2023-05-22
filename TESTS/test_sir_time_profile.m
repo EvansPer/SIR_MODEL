@@ -7,7 +7,9 @@ function test_sir_time_profile()
 % 2) The number of susceptibles decreases over time
 % 3) The number of infected increases up to its max value and then decreases over time
 % 4) The number of recovered individuals increases over time
-
+    
+    addpath(genpath(fullfile(pwd,"..","FUNCTIONS")));
+    
 % Test 1, A = 0.18, B = 0.037
     [t, y] = ode45(@(t,y) sir(t,y,0.18,0.037), [0, 150], [0.999, 0.001, 0]);
     [i,j] = max(y(:,2));

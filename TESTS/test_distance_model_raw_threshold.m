@@ -9,6 +9,8 @@ function test_distance_model_raw_threshold()
 
 % The error arises since the threshold is too small
 
+    addpath(genpath(fullfile(pwd,"..","FUNCTIONS")));
+    
     rng(1); % Random seed = 1, Mersenne Twister generator
     active_infections = (100:150)';
     a = (100:150)' + randn(51,1); 

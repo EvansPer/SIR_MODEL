@@ -10,7 +10,9 @@ function test_model_R_noise()
 % When the model_R function is called, it produces a model to be compared
 % with the raw data. An error arises when the compatibility condition is
 % not met.
-
+    
+    addpath(genpath(fullfile(pwd,"..","FUNCTIONS")));
+    
     D_0 = 5;
     k = 2.3;
     rng(1); % Random seed = 1, Mersenne Twister generator

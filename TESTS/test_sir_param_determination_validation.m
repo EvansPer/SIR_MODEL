@@ -13,7 +13,9 @@ function test_sir_param_determination_validation()
 
 % A and B are the vectors containing the possible parameters that
 % sir_param_determination may find.
-
+    
+    addpath(genpath(fullfile(pwd,"..","FUNCTIONS")));
+    
     A_true = 0.18;
     B_true = 0.037;
     tspan = [0, 161];

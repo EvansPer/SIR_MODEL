@@ -15,6 +15,8 @@ function test_sir_param_determination_output()
 % The expected vectors are then defined and compared with a new outcome of
 % the sir_param_determination function.
 
+    addpath(genpath(fullfile(pwd,"..","FUNCTIONS")));
+
     A = [0.1, 0.2];
     B = [0.5, 0.6];
     tspan = [0, 100];
