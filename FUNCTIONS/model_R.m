@@ -2,17 +2,24 @@ function [model_D_vs_R,model_D, model_recovered] = model_R(y, total_removed, dea
     
 % This function provides a model that fits the function D(R_m) = D_0*(1-exp(-k*R_m)).
 
-% The function is fed with the ODE solution matrix "y" and the raw data "total_removed", "deaths" just to give back
-% the fitting models for D(R_m), D(t) and R(t), respectively.
+% INPUT PARAMETERS:
+% - y: nx3 matrix (n generic) being the ODE system solution of the SIR model 
+%   (y(:,1) = S(t), y(:,2) = I(t), y(:,3) = R_m(t))
+% - total_removed: nx1 column vector (n generic)
+% - deaths: nx1 column vector (n generic)
 
-% Some guess parameters are initialized (D_0_guess and k_guess), then the
-% fitting function is defined symbolically.
+% OUTPUT PARAMETERS:
+% - model_D_vs_R: fit object that encapsulates the result of fitting the model specified by the fittype FT
+%   fit(total_removed,deaths,FitType,Initial_Guess) -> D = D(R_m)
+% - model_D: nx1 column vector obtained operating on total_removed -> D(t)
+% - model_recovered: nx1 column vector obtained by subtracting model_D to
+%   the SIR vector y(:,3) -> R(t) = R_m(t) - D(t)
+
+% Some guess parameters are initialized (D_0_guess and k_guess) to perform the fitting procedure,
+% then the fitting function "fun" is defined symbolically.
 
 % lsqcurvefit provides the solution to the non-linear least squares problem
 % identified by the model "fun", the guess parameters and the raw data.
-
-% Since R_m(t) = D(t) + R(t) (total removed = deaths + recovered), it is
-% possible to calculate R(t) to be used in the main simulation.
 
     D_0_guess = max(deaths);
     k_guess = 0.1;
