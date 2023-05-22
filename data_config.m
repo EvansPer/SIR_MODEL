@@ -14,7 +14,7 @@
 
 % - tspan: 1x2 vector with initial and final time
 % - y0: 1x3 vector containing ODE initial condition
-% - options: non mandatory, sets the upper bound for the step size integration
+% - options: non mandatory, structure that sets the upper bound for the step size integration
 % - A, B: vectors containing the increasing and decreasing expnential parameters.
 % - threshold: parameter set to identify A and B
 
