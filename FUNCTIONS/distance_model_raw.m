@@ -5,7 +5,8 @@ function [delta,error] = distance_model_raw(active_infections,y,threshold)
 
 % INPUT PARAMETERS:
 % - active_infections: nx1 column vector (n generic) 
-% - y: nx3 matrix, solution of the ODE system of the SIR model
+% - y: nx3 matrix (n generic) being the ODE system solution of the SIR model 
+%   (y(:,1) = S(t), y(:,2) = I(t), y(:,3) = R(t))
 % - threshold: float positive number (if too small, convergence may not be found)
 
 % OUTPUT PARAMETERS:
