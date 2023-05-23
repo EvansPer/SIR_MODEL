@@ -94,7 +94,7 @@ Inside the cycles, a SIR model is generated and compared with the real data. Whe
     
 All the previous functions are found inside the [FUNCTIONS](https://github.com/EvansPer/SIR_MODEL/blob/main/FUNCTIONS) folder, which contains in total the following functions:
  - [model_R](https://github.com/EvansPer/SIR_MODEL/tree/main/FUNCTIONS/model_R.m)
- - [model_fitting](https://github.com/EvansPer/SIR_MODEL/tree/main/FUNCTIONS/model_fitting.m)
+ - [distance_model_raw](https://github.com/EvansPer/SIR_MODEL/tree/main/FUNCTIONS/distance_model_raw.m)
  - [normalization](https://github.com/EvansPer/SIR_MODEL/tree/main/FUNCTIONS/normalization.m)
  - [plot_model_vs_data](https://github.com/EvansPer/SIR_MODEL/blob/main/FUNCTIONS/plot_model_vs_data.m)
  - [plot_model](https://github.com/EvansPer/SIR_MODEL/blob/main/FUNCTIONS/plot_model.m)
