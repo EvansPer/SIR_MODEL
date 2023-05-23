@@ -7,25 +7,23 @@
 
 % are saved. More specifically:
 
-% - data: raw data matrix
-% - duration: parameter determining the analysis length 
-% - time interval: 1xduration row vector (starting from 02/24/2020 and ending 08/01/2020).
-% The starting parameters of the ODE routine are initialised:
+% - data: nxm (n generic, m >= 10) raw data matrix
+% - duration: int positive number determining the analysis length 
+% - time interval: 1 x duration row vector (starting from 02/24/2020 and ending 08/01/2020).
 
-% - tspan: 1x2 vector with initial and final time
-% - y0: 1x3 vector containing ODE initial condition
+% The Cauchy problem starting parameters of the ODE routine are initialised:
+
+% - tspan: 1x2 row vector with initial and final time
+% - y0: 1x3 row vector containing ODE initial condition of the SIR model
 % - options: non mandatory, structure that sets the upper bound for the step size integration
-% - A, B: vectors containing the increasing and decreasing expnential parameters.
-% - threshold: parameter set to identify A and B
+% - A, B: 1xn (n generic) vectors containing the increasing and decreasing expnential parameters.
+% - threshold: float positive number set to identify A and B
 
 % The code then saves all these variables in a .mat dataframe
 
 data = readmatrix("DATI.xlsx");
 duration = 161;
 time = linspace(1,duration,duration);
-
-% Cauchy starting points: Integration time and initial starting point for
-% the ODE solution
 
 tspan = [0 duration]; 
 y0 = [0.999 0.001 0];
