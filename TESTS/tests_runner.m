@@ -5,17 +5,17 @@ function tests_runner()
 % by means of the test suite function "runtests" inside a for cycle.
 
 % It gets the path of the current script
-    testFolder = fileparts(mfilename('fullpath'));  
-    testFiles = dir(fullfile(testFolder, 'test_*.m'));
+    test_Folder = fileparts(mfilename('fullpath'));  
+    test_Files = dir(fullfile(test_Folder, 'test_*.m'));
     
 % It removes this script file from the list of test files
-    scriptName = mfilename;
-    scriptIdx = strcmp({testFiles.name}, [scriptName '.m']);
-    testFiles(scriptIdx) = [];
+    script_Name = mfilename;
+    script_index = strcmp({test_Files.name}, [script_Name '.m']);
+    test_Files(script_index) = [];
     
-    for i = 1:length(testFiles)
-        testName = testFiles(i).name;
-        runtests(fullfile(testFolder, testName));
+    for i = 1:length(test_Files)
+        test_Name = test_Files(i).name;
+        runtests(fullfile(test_Folder, test_Name));
     end
 
 end
