@@ -1,18 +1,25 @@
 function test_sir_param_determination_validation()
 
-% This test verifies that, provided the true value of [t_true,y_true],
-% (calculated with the function sir) A_true and B_true, an error arises when the same
-% parameters are extracted by the function sir_param_determination and compared
-% with A_true and B_true. If the assert condition (which compares the value of A_true and A,
+% This test verifies that, provided the true value A_true and B_true of [t_true,y_true]
+% (calculated with the function sir), an error arises when the same
+% parameters are extracted by the function sir_param_determination and the comparison
+% with A_true and B_true fails. 
+ 
+% If the assert condition (which compares the value of A_true and A,
 % B_true and B with a threshold of 1e-8) is false, then the test fails.
 
-% It tested function is fed with:
-% - the 2 ODE parameters A_true and B_true
-% - time range tspan and Cauchy initial condition y0
-% - The simulated vector active_infections and a threshold
-
-% A and B are the vectors containing the possible parameters that
-% sir_param_determination may find.
+% INIT PARAMETERS:
+% - A_true, B_true = float positive number identifying the SIR model parameters
+% - tspan: 1x2 row vector containing initial and final time 
+% - y0: 1x3 row vector containing the Cauchy problem initial conditions 
+% - option: structure containing the upper bound of step size for the time integration 
+% - threshold: float positive number (if set too small, convergence may not
+%   be reached)
+% - [t_true,y_true]: [(nx1),(nx3)] matrix containing the ode45 solutions to
+%   the SIR model
+% - active_infections: nx1 column vector corresponding to the second column
+%   vector of y_true
+% - A, B: vectors containing the possible parameters that sir_param_determination may find.
     
     addpath(genpath(fullfile(pwd,"..","FUNCTIONS")));
     
