@@ -1,8 +1,16 @@
 function test_distance_model_raw_identical()
 
-% This test verifies that, provided 2 identical vectors (active_infections
-% and y(:,2)) the model_fiting function finds no difference, thus resulting
-% in delta = true and error = 0.
+% This test verifies that, provided 2 identical vectors, the distance_model_raw function 
+% finds no difference, 
+
+% RESULTING in delta = true and error = 0.
+
+% INIT PARAMETERS:
+% - active_infections = nx1 (n generic) column vector with numbers in
+%   between 100 and 150
+% - y = nx2 (n generic) matrix (y(:,2) will be compared by means of
+%   distance_model_raw
+% - threshold: float positive number needed for vector comparison 
 
     addpath(genpath(fullfile(pwd,"..","FUNCTIONS")));
 
