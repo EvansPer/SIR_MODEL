@@ -17,7 +17,8 @@
 % - y0: 1x3 row vector containing ODE initial condition of the SIR model
 % - options: non mandatory, structure that sets the upper bound for the step size integration
 % - A, B: 1xn (n generic) vectors containing the increasing and decreasing expnential parameters.
-% - threshold: float positive number set to identify A and B
+% - threshold: float positive number set to identify A and B (if set too small, 
+%   convergence may not be reached)
 
 % The code then saves all these variables in a .mat dataframe
 
