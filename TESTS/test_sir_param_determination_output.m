@@ -2,17 +2,21 @@ function test_sir_param_determination_output()
 
 % This tests verifies that, given a set of parameters which generates the
 % vectors expected_t and expected_y, by calling the function
-% sir_param_determination, the obtained values [t,y] must be compatible with
+% sir_param_determination with the same parameters, the obtained values [t,y] are compatible with
 % expected_t and expected_y.
 
-% It is fed with:
-% - the 2 ODE parameters A and B
-% - time range tspan and Cauchy initial condition y0
-% - no specific option (irrelevant, since odeset deals with integration
-%   properties of the algorithm 
-% - a raw data vector active_infections and a threshold
+% INIT PARAMETERS:
+% - A, B = 1x2 row vector containing float positive elements to possibly
+%   identify the SIR model parameters
+% - tspan: 1x2 row vector containing initial and final time 
+% - y0: 1x3 row vector containing the Cauchy problem initial conditions 
+% - option: void structure (irrelevant, since odeset deals with integration
+%   properties of the algorithm) 
+% - active_infections: 1x91 row vector
+% - threshold: float positive number (if set too small, convergence may not
+%   be reached)
 
-% The expected vectors are then defined and compared with a new outcome of
+% The expected vectors are defined and compared with a new outcome of
 % the sir_param_determination function.
 
     addpath(genpath(fullfile(pwd,"..","FUNCTIONS")));
