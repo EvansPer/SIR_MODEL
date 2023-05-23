@@ -6,14 +6,18 @@ function test_sir_param_determination_input_validation()
 % In Test 1 I provide an empty raw vector
 % In Test 2 the threshold is negative
 
-% It is fed with:
-% - the 2 ODE parameters A and B
-% - time range tspan and Cauchy initial condition y0
-% - no specific option (irrelevant, since odeset deals with integration
-%   properties of the algorithm 
-% - a void raw data vector active_infections = []
-% - a threshold
-% - a negative threshold in Test 2.
+% INIT PARAMETERS:
+% - A, B = 1x2 row vector containing float positive elements to possibly
+%   identify the SIR model parameters
+% - tspan: 1x2 row vector containing initial and final time 
+% - y0: 1x3 row vector containing the Cauchy problem initial conditions 
+% - option: void structure (irrelevant, since odeset deals with integration
+%   properties of the algorithm) 
+% - active_infections: empty vector that should contain raw data imported
+%   from dataframe
+% - threshold: float positive number (if set too small, convergence may not
+%   be reached)
+
     
     addpath(genpath(fullfile(pwd,"..","FUNCTIONS")));
     
