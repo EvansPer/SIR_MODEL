@@ -9,7 +9,7 @@
 
 % - data: nxm (n generic, m >= 10) raw data matrix
 % - duration: int positive number determining the analysis length 
-% - time interval: 1 x duration row vector (starting from 02/24/2020 and ending 08/01/2020).
+% - time: 1 x duration row vector (starting from 02/24/2020 and ending 08/01/2020).
 
 % The Cauchy problem starting parameters of the ODE routine are initialised:
 
