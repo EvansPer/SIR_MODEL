@@ -3,12 +3,17 @@ function test_sir_param_determination_syntax()
 % This test verifies that, by calling the function "sir_param_determination" 
 % with the right parameters, no syntax error arises.
 
-% It is fed with:
-% - the 2 ODE parameters A and B
-% - time range tspan and Cauchy initial condition y0
-% - no specific option (irrelevant, since odeset deals with integration
+% INIT PARAMETERS:
+% - A, B = 1x4 row vector containing float positive elements to possibly
+%   identify the SIR model parameters
+% - tspan: 1x2 row vector containing initial and final time 
+% - y0: 1x3 row vector containing the Cauchy problem initial conditions 
+% - option: void structure (irrelevant, since odeset deals with integration
 %   properties of the algorithm) 
-% - a raw data vector active_infections and a threshold
+% - active_infections: empty vector that should contain raw data imported
+%   from dataframe
+% - threshold: float positive number (if set too small, convergence may not
+%   be reached)
 
 % By calling the function, if the parameters are wrong, a syntax error
 % would arise.
